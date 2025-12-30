@@ -1,168 +1,37 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>siKeiki Javina</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://isitaman.github.io/sikeiki-petani/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="https://isitaman.github.io/sikeiki-petani/favicon.svg">
-    <link rel="shortcut icon" href="https://isitaman.github.io/sikeiki-petani/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://isitaman.github.io/sikeiki-petani/apple-touch-icon.png">
-    <link rel="manifest" href="https://isitaman.github.io/sikeiki-petani/site.webmanifest">
-    
-    <!-- Web App Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="application-name" content="siKeiki">
-    <meta name="apple-mobile-web-app-title" content="siKeiki">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Sistem Informasi Kelola Ekosistem Industri Kemitraan Anggrek Javina">
-    
-    <style>
-        .menu-card {
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .menu-card:active {
-            transform: scale(0.98);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
-        .icon-wrapper {
-            transition: all 0.3s ease;
-        }
-        .menu-card:hover .icon-wrapper {
-            transform: scale(1.05);
-        }
-        
-        /* Untuk PWA */
-        body {
-            overscroll-behavior: none;
-        }
-        
-        /* Splash screen untuk iOS */
-        @media screen and (max-width: 480px) {
-            body::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #16a34a;
-                background-image: url('/apple-touch-icon.png');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 120px;
-                z-index: 9999;
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            body.loaded::before {
-                opacity: 0;
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-50 min-h-screen flex flex-col" onload="document.body.classList.add('loaded')">
-    <header class="bg-green-600 py-5 text-center shadow-md">
-        <div class="flex items-center justify-center space-x-3 px-4">
-            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md">
-                <img src="https://isitaman.github.io/sikeiki-petani/favicon-96x96.png"></img>
-            </div>
-            <div>
-                <h1 class="text-xl md:text-2xl font-bold text-white">siKeiki</h1>
-                <p class="text-xs md:text-sm text-green-100">Sistem Informasi Kemitraan</p>
-                <p class="text-xs md:text-sm text-green-100">Ekosistem Industri Anggrek Javina</p>
-            </div>
-        </div>
-    </header>
-    
-    <main class="px-4 py-6 flex-1">
-        <div class="grid grid-cols-2 gap-4">
-            <a href="dashboard_petani.html" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-gauge text-blue-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Dashboard Petani</h3>
-                <p class="text-xs text-gray-500">Melihat Stok dan Pembayaran</p>
-            </a>
-            
-            <!-- <a href="#" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-plus-circle text-green-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Input Stok Awal</h3>
-                <p class="text-xs text-gray-500">Tambah stok baru</p>
-            </a> -->
-            
-            <!-- <a href="#" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-table text-yellow-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Data Lahan Tanam</h3>
-                <p class="text-xs text-gray-500">Kelola lahan</p>
-            </a> -->
-            
-            <a href="input_validasi.html" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-check-circle text-purple-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Validasi Penanaman</h3>
-                <p class="text-xs text-gray-500">Verifikasi data</p>
-            </a>
-            
-            <!-- <a href="#" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-tractor text-orange-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Input Data Panen</h3>
-                <p class="text-xs text-gray-500">Catat hasil panen</p>
-            </a> -->
-            
-            <a href="Input_log.html" class="menu-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md">
-                <div class="icon-wrapper w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-3">
-                    <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-900 mb-1">Lapor Problem</h3>
-                <p class="text-xs text-gray-500">Laporkan Masalah Plant</p>
-            </a>
-        </div>
-    </main>
-    
-    <!-- Footer sederhana -->
-    <footer class="bg-white py-3 px-4 border-t border-gray-200 text-center">
-        <p class="text-xs text-gray-500">© 2025 siKeiki. All rights reserved.</p>
-    </footer>
+  <title>Daily Report</title>
 
-    <!-- Script untuk PWA -->
-    <script>
-        // Registrasi Service Worker untuk PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-        
-        // Tambahkan event listener untuk install prompt (Android)
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            // Opsional: Tampilkan tombol install custom di UI Anda
-            // showInstallPromotion();
-        });
-    </script>
+  <link rel="icon" type="image/png" href="https://isitaman.github.io/sales-daily-report/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="https://isitaman.github.io/sales-daily-report/favicon.svg">
+  <link rel="shortcut icon" href="https://isitaman.github.io/sales-daily-report/favicon.ico?v=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://isitaman.github.io/sales-daily-report/apple-touch-icon.png">
+  <link rel="manifest" href="https://isitaman.github.io/sales-daily-report/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbzQSz3mgXyN51s7ivb4_MySJeqVU_YzgYp7qptkybgAGY34lVNQOn4OYOJ4V8SpXWyEBQ/exec"
+    allow="camera; location; geolocation"
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
